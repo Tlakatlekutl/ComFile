@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QBitArray>
 #include "basicinclude.h"
 
 namespace Ui {
@@ -31,10 +32,11 @@ private:
     void syncFiles();
     void download(QString filename);
     void closeConn();
+    void MainWindow::print(QBitArray array);
     bool writeToPort(QByteArray data);
     bool readFromPort(QByteArray &response, int timeout = 3000);
-    QByteArray hammingEncode(const QByteArray&);
-    QByteArray hammingDecode(const QByteArray&, bool);
+    QByteArray hammingEncode( const QByteArray&);
+    QByteArray hammingDecode(const QByteArray&, bool&);
 
 };
 

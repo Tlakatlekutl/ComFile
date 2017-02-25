@@ -29,7 +29,16 @@ void MainWindow::error(QString error)
 
 void MainWindow::on_pushButton_clicked()
 {
-    initPort();
+//    initPort();
+    QByteArray test("ABCDE");
+    QByteArray result =  hammingEncode(test);
+    log(QString(result.toHex()));
+    bool haserr;
+    QByteArray ans = hammingDecode(result, haserr);
+    log("Ans hex: " + QString(ans.toHex()));
+    log("Ans:"+QString(ans));
+    log("errors:"+ (haserr)?"true":"false");
+
 }
 void MainWindow::initPort()
 {

@@ -4,17 +4,9 @@ bool MainWindow::writeToPort(QByteArray data)
 {
     int waitTimeout = 3000;
 
-    QBitArray bits(bytes.count()*8);
+    QByteArray encoded =  hammingEncode(data);
 
-    // Convert from QByteArray to QBitArray
-    for(int i=0; i<data.count(); ++i) {    //magic
-        for(int b=0; b<8;b++) {
-            bits.setBit( i*8+b, bytes.at(i)&(1<<(7-b)) );
-        }
-    }
-    QBitArray encoded =  hammingEncode(bits);
-
-    serial.write(data);
+    serial.write(encoded);
     if (serial.waitForBytesWritten(waitTimeout)) {
         return true;
     } else {
@@ -31,7 +23,10 @@ bool MainWindow::readFromPort(QByteArray &response,int timeout)
             while (serial.waitForReadyRead(10))
                 responseData += serial.readAll();
 
-            response = responseData;
+            bool hasEr;
+            response = hammingDecode(responseData, hasEr);
+            if(!hasEr)
+                log("fatal error in hamming decode");
             return true;
 
     } else {
