@@ -24,15 +24,15 @@ QByteArray MainWindow::hammingEncode(const QByteArray &input)
 
     // Convert from QByteArray to QBitArray
 
-    log("get:" + QString(input.toHex()));
+ //   log("get:" + QString(input.toHex()));
 
     for(int i=0; i<input.count(); ++i) {    //magic
         for(int b=0; b<8;b++) {
             temp.setBit(b, input.at(i)&(1<<(7-b)));
 
         }
-        log("bin input");
-        print(temp);
+     //   log("bin input");
+      //  print(temp);
 //        error("1");
 
         int pos = 4;
@@ -51,16 +51,16 @@ QByteArray MainWindow::hammingEncode(const QByteArray &input)
         hamT[2] = temp[pos+0];
         hamT[1] = hamT[6]^hamT[5]^hamT[2];
         hamT[0] = hamT[6]^hamT[4]^hamT[2];
-        log("middle bin");
-        print(hamT);
+    //    log("middle bin");
+    //    print(hamT);
 
         for (int b = 0; b < 14; ++b) {
             output[i*14+b] = hamT[b];
         }
 
     }
-    log("finnals bin");
-    print(output);
+   // log("finnals bin");
+    //print(output);
     QByteArray bytes;
     bytes.resize(output.count()/8+1);
     bytes.fill(0);
@@ -69,8 +69,8 @@ QByteArray MainWindow::hammingEncode(const QByteArray &input)
     for(int b=0; b<output.count();++b) {
         bytes[b/8] = (bytes.at(b/8) | ((output[b]?1:0)<<(7-(b%8))));
     }
-    log("return bytes");
-    log(QString(bytes.toHex()));
+    //log("return bytes");
+   // log(QString(bytes.toHex()));
     return bytes;
 }
 
@@ -87,15 +87,17 @@ QByteArray MainWindow::hammingDecode(const QByteArray &input, bool &hasErrors)
             output.setBit( i*8+b, input.at(i)&(1<<(7-b)) );
         }
     }
-//    error("1");
-    log("bin code in");
-    print(output);
-    QBitArray result(output.size()*4/7-input.count()/2); // Супер магический костыль ВАТАФАК
+    //error("1");
+   // log("bin code in");
+    //print(output);
+    QBitArray result((output.size()-output.count()%14)*8/14); // Супер магический костыль ВАТАФАК
 
+   // log("rsult size");
+    //log(QString::number(result.count()));
 
     for (int i=0; i < output.size()/14; i++)
     {
-//        error("2");
+
         result[i*8+7] = output[i*14+13];
         result[i*8+6] = output[i*14+12];
         result[i*8+5] = output[i*14+11];
@@ -105,30 +107,31 @@ QByteArray MainWindow::hammingDecode(const QByteArray &input, bool &hasErrors)
         result[i*8+1] = output[i*14+4];
           result[i*8] = output[i*14+2];
 
-        log("result and output: "+QString::number(i));
-        print(output);
-        print(result);
-//        bool ch1 = (((output[i+13]^output[i+12])^output[i+11]) == output[i+10]);
-//        bool ch2 = (((output[i+13]^output[i+12])^output[i+9]) == output[i+8]);
-//        bool ch3 = (((output[i+13]^output[i+11])^output[i+9]) == output[i+7]);
-//        bool ch4 = (((output[i+6]^output[i+5])^output[i+4]) == output[i+3]);
-//        bool ch5 = (((output[i+6]^output[i+5])^output[i+2]) == output[i+1]);
-//        bool ch6 = (((output[i+6]^output[i+4])^output[i+2]) == output[i]);
-//        if (ch1 && ch2 && ch3 &&ch4&&ch5&&ch6)
+       // log("result and output: "+QString::number(i));
+        //print(output);
+        //print(result);
+        bool ch1 = (((output[i*14+13]^output[i*14+12])^output[i*14+11]) == output[i*14+10]);
+        bool ch2 = (((output[i*14+13]^output[i*14+12])^output[i*14+9]) == output[i*14+8]);
+        bool ch3 = (((output[i*14+13]^output[i*14+11])^output[i*14+9]) == output[i*14+7]);
+        bool ch4 = (((output[i*14+6]^output[i*14+5])^output[i*14+4]) == output[i*14+3]);
+        bool ch5 = (((output[i*14+6]^output[i*14+5])^output[i*14+2]) == output[i*14+1]);
+        bool ch6 = (((output[i*14+6]^output[i*14+4])^output[i*14+2]) == output[i*14]);
+        if (ch1 && ch2 && ch3 && ch4 && ch5 && ch6)
             hasErrors = false;
-//        else {
-//            hasErrors = true;
-//            log("hamming has errors!");
-//        }
-//        error("3");
+        else {
+            hasErrors = true;
+            log("hamming has errors!");
+        }
+        //error("2");
     }
+    //error("3");
     QByteArray bytes;
     bytes.resize(result.count()/8);
-    log("params");
-    log(QString::number(result.count()));
+   // log("params");
+    //log(QString::number(result.count()));
     bytes.fill(0);
 
-    error("4");
+   // error("4");
     // Convert from QBitArray to QByteArray
     for(int b=0; b<result.count();++b) {
         bytes[b/8] = (bytes.at(b/8) | ((result[b]?1:0)<<(7-(b%8))));

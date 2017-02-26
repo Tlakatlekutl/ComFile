@@ -30,7 +30,7 @@ void MainWindow::error(QString error)
 void MainWindow::on_pushButton_clicked()
 {
 //    initPort();
-    QByteArray test("ABCDE");
+    QByteArray test("AbraKadaBra!!");
     QByteArray result =  hammingEncode(test);
     log(QString(result.toHex()));
     bool haserr;
