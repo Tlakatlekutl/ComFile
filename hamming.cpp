@@ -79,7 +79,7 @@ QByteArray MainWindow::hammingDecode(const QByteArray &input, bool &hasErrors)
     QBitArray temp(8);
     QBitArray hamT(7);
     QBitArray output(input.count()*8);
-    log("---------------");
+   // log("---------------");
     // Convert from QByteArray to QBitArray
 
     for(int i=0; i<input.count(); ++i) {    //magic

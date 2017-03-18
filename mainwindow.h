@@ -37,6 +37,7 @@ private:
     bool readFromPort(QByteArray &response, int timeout = 3000);
     QByteArray hammingEncode( const QByteArray&);
     QByteArray hammingDecode(const QByteArray&, bool&);
+    bool SyncTick();
 
 };
 

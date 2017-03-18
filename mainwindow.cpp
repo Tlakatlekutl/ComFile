@@ -30,7 +30,7 @@ void MainWindow::error(QString error)
 void MainWindow::on_pushButton_clicked()
 {
 //    initPort();
-    QByteArray test("AbraKadaBra!!");
+    QByteArray test("Ябу");
     QByteArray result =  hammingEncode(test);
     log(QString(result.toHex()));
     bool haserr;
@@ -54,15 +54,26 @@ void MainWindow::initPort()
         this->close();                      //Add modal error
     }
     log("Start conn... Sync baud");
+    for(int tryV = 0; tryV < 10; tryV++)
+    {
+        log("try "+QString::number(tryV));
+        if (SyncTick())
+            break;
+    }
 
+}
+bool MainWindow::SyncTick()
+{
     qsrand(QTime::currentTime().msec());
     int syncTimeout = qrand()%(5000-100 + 1) + 100;
     log("Rand: "+QString::number(syncTimeout));
     QByteArray response1;
     if (readFromPort(response1, syncTimeout)) {
         log("Response: " + QString(response1));
+        return true;
     } else {
         writeToPort(QByteArray("hello"));
         log("i`m first");
+        return false;
     }
 }
