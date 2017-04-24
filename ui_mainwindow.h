@@ -37,6 +37,7 @@ public:
     QProgressBar *progressBar;
     QWidget *tab_2;
     QTextBrowser *logArea;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -53,10 +54,8 @@ public:
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         listWidget = new QListWidget(tab);
-        new QListWidgetItem(listWidget);
-        new QListWidgetItem(listWidget);
         listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setGeometry(QRect(30, 10, 256, 192));
+        listWidget->setGeometry(QRect(30, 10, 256, 181));
         pushButton = new QPushButton(tab);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(210, 210, 75, 23));
@@ -71,6 +70,9 @@ public:
         logArea->setObjectName(QStringLiteral("logArea"));
         logArea->setGeometry(QRect(7, 2, 331, 240));
         tabWidget->addTab(tab_2, QString());
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(270, 0, 75, 23));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -91,18 +93,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-
-        const bool __sortingEnabled = listWidget->isSortingEnabled();
-        listWidget->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
-        ___qlistwidgetitem->setText(QApplication::translate("MainWindow", "1122", Q_NULLPTR));
-        QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
-        ___qlistwidgetitem1->setText(QApplication::translate("MainWindow", "2e", Q_NULLPTR));
-        listWidget->setSortingEnabled(__sortingEnabled);
-
         pushButton->setText(QApplication::translate("MainWindow", "Download", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Main", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Log", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("MainWindow", "HOST", Q_NULLPTR));
     } // retranslateUi
 
 };

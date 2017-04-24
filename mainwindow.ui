@@ -36,19 +36,9 @@
         <x>30</x>
         <y>10</y>
         <width>256</width>
-        <height>192</height>
+        <height>181</height>
        </rect>
       </property>
-      <item>
-       <property name="text">
-        <string>1122</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>2e</string>
-       </property>
-      </item>
      </widget>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
@@ -92,6 +82,19 @@
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>0</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HOST</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

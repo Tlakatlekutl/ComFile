@@ -15,24 +15,27 @@ bool MainWindow::writeToPort(QByteArray data)
     }
 }
 
-bool MainWindow::readFromPort(QByteArray &response,int timeout)
+int MainWindow::readFromPort(QByteArray &response,int timeout)
 {
     int currentWaitTimeout = timeout;
         if (serial.waitForReadyRead(currentWaitTimeout)) {
             QByteArray responseData = serial.readAll();
-            while (serial.waitForReadyRead(10))
-                responseData += serial.readAll();
+//            while (serial.waitForReadyRead(10))
+//                responseData += serial.readAll();
 
             bool hasEr=true;
             response = hammingDecode(responseData, hasEr);
 //            response = responseData;
-            if(hasEr)
+            if(hasEr) {
                 log("fatal error in hamming decode");
-            return true;
+                log(response);
+                return 2;
+            }
+            return 1;
 
     } else {
         //error("Timeout data reading");
 //        QByteArray ans("error");
-        return false;
+        return 0;
     }
 }

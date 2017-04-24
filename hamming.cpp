@@ -17,23 +17,15 @@ QByteArray MainWindow::hammingEncode(const QByteArray &input)
     QBitArray temp(8);
     QBitArray hamT(14);
     QBitArray output(input.count()*14);
-//    temp.fill(0);
+
     hamT.fill(0);
-//    output.fill(0);
-//    error(QString::number(input.count()*14));
-
-    // Convert from QByteArray to QBitArray
-
- //   log("get:" + QString(input.toHex()));
 
     for(int i=0; i<input.count(); ++i) {    //magic
         for(int b=0; b<8;b++) {
             temp.setBit(b, input.at(i)&(1<<(7-b)));
 
         }
-     //   log("bin input");
-      //  print(temp);
-//        error("1");
+
 
         int pos = 4;
         hamT[13] = temp[pos + 3];

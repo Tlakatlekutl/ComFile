@@ -22,11 +22,15 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
+    bool first;
     Ui::MainWindow *ui;
     QString portName;
     QSerialPort::BaudRate baud;
     QSerialPort serial;
+    int tupoBaud = 2400;
     void initPort();
     void hello(); // sync conn and check
     void syncFiles();
@@ -34,11 +38,25 @@ private:
     void closeConn();
     void MainWindow::print(QBitArray array);
     bool writeToPort(QByteArray data);
-    bool readFromPort(QByteArray &response, int timeout = 3000);
+    int readFromPort(QByteArray &response, int timeout = 3000);
     QByteArray hammingEncode( const QByteArray&);
     QByteArray hammingDecode(const QByteArray&, bool&);
     bool SyncTick();
-
+    QByteArray SyncFrame();
+//    QByteArray BaudFrame(int speed);
+    QByteArray OKframe();
+    int SelectFrame(QByteArray);
+    void ParseBaud(QByteArray);
+    void SyncFiles();
+    QByteArray FilelistFrame(QString);
+    void ShowFileLists(QByteArray);
+    int Wait();
+    QByteArray FilePickFrame(QString filename);
+    void StartFileSending(QString);
+    QByteArray FilePartFrame(QByteArray);
+    QByteArray FileInfoFrame(int);
+    void FileDownload(int);
+    QString filename;
 };
 
 #endif // MAINWINDOW_H

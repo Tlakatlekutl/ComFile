@@ -27,7 +27,10 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     startwindow.cpp \
     serial.cpp \
-    hamming.cpp
+    hamming.cpp \
+    network.cpp \
+    syncfiles.cpp \
+    sendfiles.cpp
 
 HEADERS  += \
     basicinclude.h \
