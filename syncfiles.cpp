@@ -6,7 +6,7 @@ void MainWindow::SyncFiles() {
     QDir d("./files");
     log(d.absolutePath());
     QStringList filesList = d.entryList(QDir::Files);
-    QString filesString = filesList.join(';')+";file0.txt";
+    QString filesString = filesList.join(';');
         writeToPort(FilelistFrame(filesString));
         log("File string: " + filesString);
 }

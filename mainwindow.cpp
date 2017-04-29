@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QTime>
+#include <QCloseEvent>
 
 MainWindow::MainWindow(QString portName, QSerialPort::BaudRate baud, QWidget *parent):
     QMainWindow(parent),
@@ -56,19 +57,26 @@ void MainWindow::initPort()
     log("init port with COM="+portName+" and baud rate: "+QString::number(baud));
     serial.setPortName(portName);
     serial.setBaudRate(QSerialPort::Baud1200);
-    serial.setFlowControl(QSerialPort::NoFlowControl);
+    serial.setFlowControl(QSerialPort::HardwareControl);
 
 
     if (!serial.open(QIODevice::ReadWrite)) {
         log("!!! error opening port !!!");
+        error("Port is not opening");
         this->close();                      //Add modal error
+        return;
     }
     first = true;
     log("Start conn... Sync baud");
-    for(int tryV = 0; tryV < 10; tryV++)
+    for(int tryV = 0; tryV < 11; tryV++)
     {
         if (SyncTick())
             break;
+        if (tryV == 10) {
+            error("Невозможно установить соединение");
+            this->close();
+            return;
+        }
     }
 
     log((first)?"my state is first":" my state is second");
@@ -110,6 +118,17 @@ void MainWindow::on_pushButton_2_clicked()
     if (readFromPort(response, 30000)) {
         SelectFrame(response);
     } else {
-        log("timeout!, no jion found");
+        log("timeout!, no join found");
     }
+}
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    log("exiting...");
+    if (serial.isOpen()) {
+        writeToPort(QByteArray("\x07"));
+        serial.clear();
+        serial.close();
+    }
+    event->accept();
+//    this->close();
 }

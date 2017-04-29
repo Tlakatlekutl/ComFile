@@ -26,6 +26,7 @@ private slots:
 
 private:
     bool first;
+    void closeEvent(QCloseEvent *event);
     Ui::MainWindow *ui;
     QString portName;
     QSerialPort::BaudRate baud;

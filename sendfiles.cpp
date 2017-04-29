@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include <QFile>
 
 
@@ -54,7 +55,11 @@ void MainWindow::FileDownload(int count) {
     log("start file downloading...");
     log("Count tick: " + QString::number(count));
     QByteArray fileBytes;
+    ui->progressBar->setValue(0);
     for (int i = 0; i < count; i++) {
+        int progress = (i*100)/count;
+        ui->progressBar->setValue(progress);
+        log("value: " + QString::number(progress));
         QByteArray part;
         int status = readFromPort(part);
         if (status == 1) {
@@ -65,11 +70,14 @@ void MainWindow::FileDownload(int count) {
                 writeToPort(OKframe());
             }
         } else if (status == 2) {
-            writeToPort(QByteArray("\x06repeat"));
+            writeToPort(QByteArray("\x06"));
         } else {
             log("timeout file part waiting");
+            return; //  ??
         }
     }
+    ui->progressBar->setValue(100);
+
     if (filename == "")
         log("filename error");
     QFile file(filename);

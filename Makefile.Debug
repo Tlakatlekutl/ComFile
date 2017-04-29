@@ -49,7 +49,8 @@ SOURCES       = main.cpp \
 		serial.cpp \
 		hamming.cpp \
 		network.cpp \
-		syncfiles.cpp debug\moc_mainwindow.cpp \
+		syncfiles.cpp \
+		sendfiles.cpp debug\moc_mainwindow.cpp \
 		debug\moc_startwindow.cpp
 OBJECTS       = debug\main.obj \
 		debug\mainwindow.obj \
@@ -58,6 +59,7 @@ OBJECTS       = debug\main.obj \
 		debug\hamming.obj \
 		debug\network.obj \
 		debug\syncfiles.obj \
+		debug\sendfiles.obj \
 		debug\moc_mainwindow.obj \
 		debug\moc_startwindow.obj
 
@@ -70,7 +72,8 @@ DIST          =  basicinclude.h \
 		serial.cpp \
 		hamming.cpp \
 		network.cpp \
-		syncfiles.cpp
+		syncfiles.cpp \
+		sendfiles.cpp
 QMAKE_TARGET  = ComFile
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = ComFile.exe
@@ -136,10 +139,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) ComFile.zip $(SOURCES) $(DIST) ComFile.pro "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\spec_pre.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\common\angle.conf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\common\msvc-base.conf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\common\msvc-desktop.conf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\qconfig.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dcore.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dcore_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dextras.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dextras_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dinput.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dinput_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dlogic.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dlogic_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquick.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquick_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickextras.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickextras_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickinput.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickinput_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickrender.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickrender_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3drender.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3drender_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_accessibility_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axbase.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axbase_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axcontainer.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axcontainer_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axserver.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axserver_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_bluetooth.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_bluetooth_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_bootstrap_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_charts.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_charts_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_clucene_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_concurrent.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_concurrent_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_core.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_core_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_datavisualization.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_datavisualization_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_dbus.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_dbus_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_designer.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_designer_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_designercomponents_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_egl_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_fb_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_gamepad.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_gamepad_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_gui.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_gui_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_help.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_help_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_location.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_location_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_multimedia.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_multimedia_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_network.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_network_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_networkauth.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_networkauth_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_nfc.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_nfc_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_opengl.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_opengl_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_openglextensions.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_openglextensions_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_packetprotocol_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_positioning.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_positioning_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_printsupport.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_printsupport_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_purchasing.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_purchasing_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qml.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qml_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qmldebug_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qmldevtools_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qmltest.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qmltest_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quick.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quick_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickcontrols2.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickparticles_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_script.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_script_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_scripttools.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_scripttools_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_scxml.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_scxml_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_sensors.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_sensors_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_serialbus.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_serialbus_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_serialport.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_serialport_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_sql.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_sql_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_svg.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_svg_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_testlib.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_testlib_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_texttospeech.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_texttospeech_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_theme_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_uiplugin.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_uitools.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_uitools_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_webchannel.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_webchannel_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_websockets.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_websockets_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_widgets.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_widgets_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_winextras.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_winextras_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_xml.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_xml_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_zlib_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qt_functions.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qt_config.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\win32-msvc2013\qmake.conf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\spec_post.prf" .qmake.stash "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\exclusive_builds.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\toolchain.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\default_pre.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\win32\default_pre.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\resolve_config.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\exclusive_builds_post.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\default_post.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\build_pass.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qml_debug.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\win32\rtti.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\precompile_header.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\warn_on.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qt.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\resources.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\moc.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\win32\opengl.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\uic.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qmake_use.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\file_copies.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\win32\windows.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\testcase_targets.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\exceptions.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\yacc.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\lex.prf" ComFile.pro "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\qtmaind.prl" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\Qt5Widgetsd.prl" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\Qt5Guid.prl" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\Qt5SerialPortd.prl" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\Qt5Cored.prl"    "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\data\dummy.cpp" basicinclude.h mainwindow.h startwindow.h pheaders.h main.cpp mainwindow.cpp startwindow.cpp serial.cpp hamming.cpp network.cpp syncfiles.cpp mainwindow.ui startwindow.ui    
+	$(ZIP) ComFile.zip $(SOURCES) $(DIST) ComFile.pro "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\spec_pre.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\common\angle.conf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\common\msvc-base.conf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\common\msvc-desktop.conf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\qconfig.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dcore.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dcore_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dextras.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dextras_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dinput.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dinput_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dlogic.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dlogic_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquick.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquick_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickextras.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickextras_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickinput.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickinput_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickrender.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3dquickrender_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3drender.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_3drender_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_accessibility_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axbase.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axbase_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axcontainer.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axcontainer_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axserver.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_axserver_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_bluetooth.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_bluetooth_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_bootstrap_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_charts.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_charts_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_clucene_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_concurrent.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_concurrent_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_core.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_core_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_datavisualization.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_datavisualization_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_dbus.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_dbus_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_designer.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_designer_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_designercomponents_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_egl_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_fb_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_gamepad.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_gamepad_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_gui.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_gui_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_help.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_help_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_location.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_location_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_multimedia.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_multimedia_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_network.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_network_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_networkauth.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_networkauth_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_nfc.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_nfc_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_opengl.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_opengl_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_openglextensions.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_openglextensions_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_packetprotocol_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_positioning.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_positioning_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_printsupport.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_printsupport_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_purchasing.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_purchasing_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qml.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qml_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qmldebug_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qmldevtools_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qmltest.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qmltest_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quick.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quick_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickcontrols2.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickparticles_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_script.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_script_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_scripttools.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_scripttools_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_scxml.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_scxml_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_sensors.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_sensors_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_serialbus.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_serialbus_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_serialport.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_serialport_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_sql.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_sql_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_svg.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_svg_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_testlib.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_testlib_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_texttospeech.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_texttospeech_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_theme_support_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_uiplugin.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_uitools.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_uitools_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_webchannel.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_webchannel_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_websockets.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_websockets_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_widgets.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_widgets_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_winextras.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_winextras_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_xml.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_xml_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\modules\qt_lib_zlib_private.pri" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qt_functions.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qt_config.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\win32-msvc2013\qmake.conf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\spec_post.prf" .qmake.stash "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\exclusive_builds.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\toolchain.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\default_pre.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\win32\default_pre.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\resolve_config.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\exclusive_builds_post.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\default_post.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\build_pass.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qml_debug.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\win32\rtti.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\precompile_header.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\warn_on.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qt.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\resources.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\moc.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\win32\opengl.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\uic.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\qmake_use.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\file_copies.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\win32\windows.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\testcase_targets.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\exceptions.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\yacc.prf" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\lex.prf" ComFile.pro "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\qtmaind.prl" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\Qt5Widgetsd.prl" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\Qt5Guid.prl" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\Qt5SerialPortd.prl" "..\..\..\..\Program Files\QT\5.8\msvc2013_64\lib\Qt5Cored.prl"    "..\..\..\..\Program Files\QT\5.8\msvc2013_64\mkspecs\features\data\dummy.cpp" basicinclude.h mainwindow.h startwindow.h pheaders.h main.cpp mainwindow.cpp startwindow.cpp serial.cpp hamming.cpp network.cpp syncfiles.cpp sendfiles.cpp mainwindow.ui startwindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.obj debug\mainwindow.obj debug\startwindow.obj debug\serial.obj debug\hamming.obj debug\network.obj debug\syncfiles.obj debug\moc_mainwindow.obj debug\moc_startwindow.obj
+	-$(DEL_FILE) debug\main.obj debug\mainwindow.obj debug\startwindow.obj debug\serial.obj debug\hamming.obj debug\network.obj debug\syncfiles.obj debug\sendfiles.obj debug\moc_mainwindow.obj debug\moc_startwindow.obj
 	-$(DEL_FILE) debug\ComFile.exp debug\ComFile.vc.pdb debug\ComFile.ilk debug\ComFile.idb
 
 distclean: clean 
@@ -725,7 +728,8 @@ debug\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qmessagebox.h" \
 		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qdialog.h" \
 		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\QTime" \
-		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qdatetime.h"
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qdatetime.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\QCloseEvent"
 
 debug\startwindow.obj: startwindow.cpp startwindow.h \
 		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QDialog" \
@@ -1395,6 +1399,175 @@ debug\syncfiles.obj: syncfiles.cpp mainwindow.h \
 		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\QDir" \
 		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qdir.h" \
 		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qfileinfo.h"
+
+debug\sendfiles.obj: sendfiles.cpp mainwindow.h \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QMainWindow" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qmainwindow.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qtwidgetsglobal.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qtguiglobal.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qglobal.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qconfig-bootstrapped.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qconfig.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qtcore-config.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qsystemdetection.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qprocessordetection.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qcompilerdetection.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qtypeinfo.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qsysinfo.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qlogging.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qflags.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qtypetraits.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qatomic.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qbasicatomic.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qatomic_bootstrap.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qgenericatomic.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qatomic_cxx11.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qatomic_msvc.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qglobalstatic.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qmutex.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qnumeric.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qversiontagging.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qtgui-config.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qtwidgets-config.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qwidget.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qwindowdefs.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qobjectdefs.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qnamespace.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qobjectdefs_impl.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qwindowdefs_win.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qobject.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qstring.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qchar.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qbytearray.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qrefcount.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qarraydata.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qstringbuilder.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qlist.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qalgorithms.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qiterator.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qhashfunctions.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qpair.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qbytearraylist.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qstringlist.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qregexp.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qstringmatcher.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qcoreevent.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qscopedpointer.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qmetatype.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qvarlengtharray.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qcontainerfwd.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qobject_impl.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qmargins.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qpaintdevice.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qrect.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qsize.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qpoint.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qpalette.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qcolor.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qrgb.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qrgba64.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qbrush.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qvector.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qmatrix.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qpolygon.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qregion.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qdatastream.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qiodevice.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qline.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qtransform.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qpainterpath.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qimage.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qpixelformat.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qpixmap.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qsharedpointer.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qshareddata.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qhash.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qsharedpointer_impl.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qfont.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qfontmetrics.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qfontinfo.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qsizepolicy.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qcursor.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qkeysequence.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qevent.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qvariant.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qmap.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qdebug.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qtextstream.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qlocale.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qset.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qcontiguouscache.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qurl.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qurlquery.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qfile.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qfiledevice.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qvector2d.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qtouchdevice.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qtabwidget.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qicon.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\QBitArray" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qbitarray.h" \
+		basicinclude.h \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtSerialPort\QSerialPortInfo" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtSerialPort\qserialportinfo.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtSerialPort\qserialportglobal.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtSerialPort\QSerialPort" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtSerialPort\qserialport.h" \
+		ui_mainwindow.h \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\QVariant" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QAction" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qaction.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qactiongroup.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QApplication" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qapplication.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qcoreapplication.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qeventloop.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qdesktopwidget.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qguiapplication.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qinputmethod.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QButtonGroup" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qbuttongroup.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QHeaderView" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qheaderview.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qabstractitemview.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qabstractscrollarea.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qframe.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qabstractitemmodel.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qitemselectionmodel.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qstyleoption.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qabstractspinbox.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qvalidator.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\qregularexpression.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qslider.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qabstractslider.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qstyle.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qtabbar.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qrubberband.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QListWidget" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qlistwidget.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qlistview.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QMenuBar" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qmenubar.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qmenu.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QProgressBar" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qprogressbar.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QPushButton" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qpushbutton.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qabstractbutton.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QStatusBar" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qstatusbar.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QTabWidget" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QTextBrowser" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qtextbrowser.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\qtextedit.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qtextdocument.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qtextoption.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qtextcursor.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qtextformat.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtGui\qpen.h" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtWidgets\QWidget" \
+		"..\..\..\..\Program Files\QT\5.8\msvc2013_64\include\QtCore\QFile"
 
 debug\moc_mainwindow.obj: debug\moc_mainwindow.cpp 
 

@@ -62,7 +62,7 @@ public:
         progressBar = new QProgressBar(tab);
         progressBar->setObjectName(QStringLiteral("progressBar"));
         progressBar->setGeometry(QRect(30, 210, 161, 23));
-        progressBar->setValue(24);
+        progressBar->setValue(0);
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));

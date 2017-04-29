@@ -32,8 +32,11 @@ int MainWindow::SelectFrame(QByteArray frame) {
         log("FileinfoFrame recived");
         FileDownload(frame.mid(1).toInt());
         return 5;
+    case '\x07':
+        log("Клиент разорвал соединение");
+        return 6;
     default:
-        log("unknown frame recived: " + QString::number(type, 16));
+        log("unknown frame recived: " + QString::number(type));
         return 0;
     }
 }
