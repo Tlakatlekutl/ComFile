@@ -37,7 +37,7 @@ private:
     void syncFiles();
     void download(QString filename);
     void closeConn();
-    void MainWindow::print(QBitArray array);
+    void print(QBitArray array);
     bool writeToPort(QByteArray data);
     int readFromPort(QByteArray &response, int timeout = 3000);
     QByteArray hammingEncode( const QByteArray&);
