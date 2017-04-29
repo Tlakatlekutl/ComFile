@@ -47,7 +47,9 @@ void MainWindow::on_pushButton_clicked()
         log(item->text());
         filename = item->text();
         writeToPort(FilePickFrame(filename));
-        Wait();
+        if (Wait() == -1) {
+            error("Не удалось скачать файл");
+        }
     }
 
 }
