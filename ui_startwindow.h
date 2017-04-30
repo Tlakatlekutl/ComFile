@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'startwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.8.0
+** Created by: Qt User Interface Compiler version 5.9.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -35,29 +35,29 @@ public:
     {
         if (StartWindow->objectName().isEmpty())
             StartWindow->setObjectName(QStringLiteral("StartWindow"));
-        StartWindow->resize(196, 187);
+        StartWindow->resize(237, 221);
         pushButton = new QPushButton(StartWindow);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(60, 150, 75, 23));
+        pushButton->setGeometry(QRect(80, 180, 81, 23));
         SerialPortComboBox = new QComboBox(StartWindow);
         SerialPortComboBox->setObjectName(QStringLiteral("SerialPortComboBox"));
-        SerialPortComboBox->setGeometry(QRect(100, 50, 69, 22));
+        SerialPortComboBox->setGeometry(QRect(150, 70, 69, 22));
         BaudComboBox = new QComboBox(StartWindow);
         BaudComboBox->setObjectName(QStringLiteral("BaudComboBox"));
-        BaudComboBox->setGeometry(QRect(100, 90, 69, 22));
+        BaudComboBox->setGeometry(QRect(150, 110, 69, 22));
         SerialPortLabel = new QLabel(StartWindow);
         SerialPortLabel->setObjectName(QStringLiteral("SerialPortLabel"));
-        SerialPortLabel->setGeometry(QRect(40, 55, 47, 13));
+        SerialPortLabel->setGeometry(QRect(20, 69, 71, 20));
         QFont font;
-        font.setPointSize(12);
+        font.setPointSize(11);
         SerialPortLabel->setFont(font);
         BaudLabel = new QLabel(StartWindow);
         BaudLabel->setObjectName(QStringLiteral("BaudLabel"));
-        BaudLabel->setGeometry(QRect(40, 96, 47, 13));
+        BaudLabel->setGeometry(QRect(20, 110, 121, 20));
         BaudLabel->setFont(font);
         SettingsLabel = new QLabel(StartWindow);
         SettingsLabel->setObjectName(QStringLiteral("SettingsLabel"));
-        SettingsLabel->setGeometry(QRect(70, 10, 71, 31));
+        SettingsLabel->setGeometry(QRect(30, 10, 171, 31));
         QFont font1;
         font1.setPointSize(14);
         SettingsLabel->setFont(font1);
@@ -71,9 +71,9 @@ public:
     {
         StartWindow->setWindowTitle(QApplication::translate("StartWindow", "Settings", Q_NULLPTR));
         pushButton->setText(QApplication::translate("StartWindow", "OK", Q_NULLPTR));
-        SerialPortLabel->setText(QApplication::translate("StartWindow", "Port", Q_NULLPTR));
-        BaudLabel->setText(QApplication::translate("StartWindow", "Baud", Q_NULLPTR));
-        SettingsLabel->setText(QApplication::translate("StartWindow", "Settings", Q_NULLPTR));
+        SerialPortLabel->setText(QApplication::translate("StartWindow", "\320\237\320\276\321\200\321\202", Q_NULLPTR));
+        BaudLabel->setText(QApplication::translate("StartWindow", "\320\241\320\272\320\276\321\200\320\276\321\201\321\202\321\214 (\320\261\320\276\320\264)", Q_NULLPTR));
+        SettingsLabel->setText(QApplication::translate("StartWindow", "\320\224\320\276\320\261\321\200\320\276 \320\277\320\276\320\266\320\260\320\273\320\276\320\262\320\260\321\202\321\214!", Q_NULLPTR));
     } // retranslateUi
 
 };
