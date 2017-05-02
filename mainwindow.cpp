@@ -77,6 +77,7 @@ void MainWindow::initPort()
         if (tryV == 10) {
             error("Невозможно установить соединение");
             this->close();
+            exit(0);
             return;
         }
     }
