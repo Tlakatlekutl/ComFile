@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QFile>
+#include <QFileDialog>
 
 
 QByteArray MainWindow::FilePickFrame(QString filename) {
@@ -78,9 +79,10 @@ void MainWindow::FileDownload(int count) {
     }
     ui->progressBar->setValue(100);
 
-    if (filename == "")
-        log("filename error");
-    QFile file(filename);
+    QString fileName = QFileDialog::getSaveFileName(this,
+            tr("Сохранить файл"), filename,
+            tr("All Files (*)"));
+    QFile file(fileName);
     file.open(QIODevice::WriteOnly);
     file.write(fileBytes);
     file.close();
